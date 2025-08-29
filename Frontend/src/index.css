@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Jacques+Francois+Shadow&family=Oregano&family=Outfit&family=Piedra&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-piedra: "Piedra", system-ui, sans-serif;
+  --font-oregano: "Oregano", system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-outfit: "Outfit", system-ui, sans-serif;
+  --font-jacques-francois-shadow: "Jacques Francois Shadow", system-ui, sans-serif;
+}
+
+.noise-bg {
+    background-image: url('./assets/noise.png');
+    background-repeat: repeat;
+}
+
+.backgroundImage {
+    background-image: url('./assets/home.jpeg');
+    background-repeat: no-repeat; 
+}
+
+html{
+  font-size: 80%;
+}
+
