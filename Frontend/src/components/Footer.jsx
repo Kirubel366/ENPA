@@ -13,16 +13,17 @@ const Footer = () => {
         <p className='font-medium text-xl text-white'>Join Us in Making a Change!!!</p>
       </div>
       <div className='flex items-start justify-between'>
-        <div className='flex flex-col items-start justify-center gap-8'>
-          <h3 className='font-semibold text-2xl'>Any Comments</h3>
+        <div className='flex flex-col items-start justify-center gap-5'>
+          <h3 className='font-semibold text-2xl'>Any Comments?</h3>
           <div className='flex flex-col items-start justify-center gap-3'>
-            <textarea type="text" placeholder='Leave your comment' className='rounded-2xl py-2 px-4 focus:outline-none w-80 [#0077B6]/60 border-2 border-[#0077B6]' />
+            <input type="text" placeholder='Email' className='rounded-2xl py-2 px-4 focus:outline-none w-80 [#0077B6]/60 border-2 border-[#0077B6]' />
+            <textarea type="text" placeholder='Leave your comment...' className='rounded-2xl py-2 px-4 focus:outline-none w-80 [#0077B6]/60 border-2 border-[#0077B6]' />
             <button className='bg-[#0077B6] w-40 px-6 py-1 rounded-full font-bold text-lg shadow-md hover:shadow-[rgb(0,119,182)] border-2 border-transparent hover:border-[hsl(199,100%,27%)] hover:cursor-pointer transition-all duration-300'>Submit</button>
           </div>
         </div>
-        <div className='flex flex-col items-center justify-center gap-8'>
+        <div className='flex flex-col items-center justify-center gap-5'>
           <h3 className='font-semibold text-2xl'>Quick Links</h3>
-          <div className='flex flex-col items-center justify-center gap-2'>
+          <div className='flex flex-col items-center justify-center gap-1'>
             <Link to="/" className='text-lg text-[#90E0EF] hover:text-green-400 hover:cursor-pointer hover:translate-x-2 transition-all duration-500'>Home</Link>
             <Link to="/about" className='text-lg text-[#90E0EF] hover:text-green-400 hover:cursor-pointer hover:translate-x-2 transition-all duration-500'>About Us</Link>
             <Link to="/gallery" className='text-lg text-[#90E0EF] hover:text-green-400 hover:cursor-pointer hover:translate-x-2 transition-all duration-500'>Gallery</Link>
@@ -30,9 +31,9 @@ const Footer = () => {
             <Link to="/contact" className='text-lg text-[#90E0EF] hover:text-green-400 hover:cursor-pointer hover:translate-x-2 transition-all duration-500'>Contact Us</Link>
           </div>
         </div>
-        <div className='flex flex-col items-center justify-center gap-8'>
+        <div className='flex flex-col items-center justify-center gap-5'>
           <h3 className='font-semibold text-2xl'>Contact Us</h3>
-          <div className='flex flex-col items-center justify-center gap-2'>
+          <div className='flex flex-col items-center justify-center gap-1'>
             <div className='flex text-xl items-center justify-center gap-2 text-[#90E0EF] font-bold'>
               <FaPhone />
               <p>+251911803260</p>
@@ -43,7 +44,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col items-center justify-center gap-8'>
+        <div className='flex flex-col items-center justify-center gap-5'>
           <h3 className='font-semibold text-2xl'>Social Media</h3>
           <div className='flex items-center justify-center gap-3'>
             <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500' icon="logos:tiktok-icon" width="23" height="23" />

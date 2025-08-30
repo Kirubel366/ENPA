@@ -69,7 +69,7 @@ const Navbar = () => {
 
       {/* Main Navbar */}
       <div className={`
-        flex items-center justify-between w-full h-25 bg-[#023E8A] opacity-[85%] px-30
+        flex items-center justify-between w-full h-25 bg-[#023E8A]/90 px-30
         transition-all duration-500 ease-in-out shadow-lg shadow-[#0077B6]
         ${hideInfoNav ? "-mt-10" : "mt-0"}
       `}>
@@ -82,13 +82,13 @@ const Navbar = () => {
 
         <div className='flex items-center justify-center gap-10'>
           <div className='flex items-center justify-center text-white font-semibold gap-7 font-outfit text-lg'>
-            <Link to="/" className={`hover:text-green-400 transition-all duration-500 ${isActive("/") ? "text-green-400" : ""}`}>Home</Link>
-            <Link to="/about" className={`hover:text-green-400 transition-all duration-500 ${isActive("/about") ? "text-green-400" : ""}`}>About Us</Link>
-            <Link to="/gallery" className={`hover:text-green-400 transition-all duration-500 ${isActive("/gallery") ? "text-green-400" : ""}`}>Gallery</Link>
-            <Link to="/events" className={`hover:text-green-400 transition-all duration-500 ${isActive("/events") ? "text-green-400" : ""}`}>Events</Link>
-            <Link to="/contact" className={`hover:text-green-400 transition-all duration-500 ${isActive("/contact") ? "text-green-400" : ""}`}>Contact Us</Link>
+            <Link to="/" className={`hover:text-green-400 text-xl transition-all duration-500 ${isActive("/") ? "text-green-400" : ""}`}>Home</Link>
+            <Link to="/about" className={`hover:text-green-400 text-xl transition-all duration-500 ${isActive("/about") ? "text-green-400" : ""}`}>About Us</Link>
+            <Link to="/gallery" className={`hover:text-green-400 text-xl transition-all duration-500 ${isActive("/gallery") ? "text-green-400" : ""}`}>Gallery</Link>
+            <Link to="/events" className={`hover:text-green-400 text-xl transition-all duration-500 ${isActive("/events") ? "text-green-400" : ""}`}>Events</Link>
+            <Link to="/contact" className={`hover:text-green-400 text-xl transition-all duration-500 ${isActive("/contact") ? "text-green-400" : ""}`}>Contact Us</Link>
           </div>
-          <button className='bg-[#08085D]/30 border-2 hover:bg-[#08085D]/60 transition-all duration-500 border-[#0077B6] w-30 px-4 py-2 rounded-full font-bold text-lg text-white'>Login</button>
+          <button className='bg-[#08085D]/30 border-2 hover:cursor-pointer hover:bg-[#08085D]/60 transition-all duration-500 border-[#0077B6] w-30 px-4 py-2 rounded-full font-bold text-lg text-white'>Login</button>
         </div>
       </div>
     </div>

@@ -1,15 +1,39 @@
-import React from 'react'
-import home from "../../assets/home3.jpg"
+import React, { useState, useEffect } from 'react'
+import home from "../../assets/home.jpeg"
+import home2 from "../../assets/home2.jpeg"
+import home3 from "../../assets/home3.jpg"
 import { Icon } from '@iconify/react';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const images = [home3, home, home2];
+  const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false); // start fade out
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % images.length);
+        setFade(true); // fade in new image
+      }, 300); // half second fade out
+    }, 3000); // change every 2 seconds
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className='mt-35'>
        {/*Hero section*/}
        <div className='relative w-full shadow-b-2 shadow-lg shadow-[#0077B6]'>
-            <img src={home} alt="" className='w-full h-150 object-cover' />
+              <img 
+                src={images[current]}
+                alt="" 
+                className={`
+                  w-full h-150 object-cover
+                  transition-opacity duration-700
+                  ${fade ? 'opacity-100' : 'opacity-0'}
+                `}
+              />
             <div className='absolute top-0 left-0 right-0 bottom-0 opacity-[95%] bg-gradient-to-r from-[#03045E] to-[#000180]/20'>
                 <h1 className='font-piedra text-6xl ml-30 mt-30 text-white leading-17'>Together, We Build <br /> Brighter Futures</h1>
                 <div className='relative'>
@@ -30,7 +54,7 @@ const Home = () => {
         </div>
         <div className='flex flex-col items-center justify-center gap-10 text-white font-outfit text-xl'>
           <h2 className='font-bold text-4xl'>Who We Are</h2>
-          <p className='w-120'>Education for the Needy People Association (ENPA) is a local charity founded in 2008 and registered in 2010 to support disadvantaged communities. ENPA helps vulnerable children affected by poverty, HIV/AIDS, or loss of family, giving them access to education, safety, and hope.</p>
+          <p className='w-120'>Education for Needy People Association (ENPA) is a local charity founded in 2008 and registered in 2010 to support disadvantaged communities. ENPA helps vulnerable children affected by poverty, HIV/AIDS, or loss of family, giving them access to education, safety, and hope.</p>
           <p className='w-120'>Based in Yeka Kifle Ketema, northeast of Addis Ababa, ENPA addresses the high cost of schooling and limited health services. We provide education, healthcare support, and help children with disabilities, while empowering single mothers through vocational training to improve their livelihoods.</p>
           <Link to="/about"><button className='bg-[#0077B6] w-50 px-6 py-2 rounded-full font-bold text-lg shadow-md hover:shadow-[rgb(0,119,182)] border-2 border-transparent hover:border-[hsl(199,100%,27%)] hover:cursor-pointer transition-all duration-300'>Discover More</button></Link>
         </div>
