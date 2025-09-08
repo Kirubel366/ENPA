@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
 import User from "../models/User.js"
+import dotenv from "dotenv";
+dotenv.config();
 
 export const generateToken = (userId, res) => {
     const token = jwt.sign({userId}, process.env.JWT_SECRET, {
@@ -52,3 +54,33 @@ export const notifyVolunteers = async ({ subject, message }) => {
         console.error("Error notifying volunteers:", error.message)
     }
 }
+
+export const getEmbedUrl = (url) => {
+    if (url.includes("youtube.com/watch") || url.includes("youtu.be/")) {
+      const videoId = url.includes("youtu.be/")
+        ? url.split("youtu.be/")[1].split("?")[0]
+        : url.split("v=")[1].split("&")[0];
+      return `https://www.youtube.com/embed/${videoId}`;
+    } 
+    if (url.includes("vimeo.com/")) {
+      const videoId = url.split("vimeo.com/")[1].split("?")[0];
+      return `https://player.vimeo.com/video/${videoId}`;
+    } 
+    if (url.includes("tiktok.com/")) {
+      const videoId = url.split("/video/")[1].split("?")[0];
+      return `https://www.tiktok.com/embed/${videoId}`;
+    }
+    if (url.includes("facebook.com/")) {
+      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}`;
+    }
+    if (url.includes("linkedin.com/")) {
+      return url.replace("linkedin.com/posts/", "www.linkedin.com/embed/feed/update/");
+    }
+    if (url.includes("instagram.com/")) {
+      // Instagram embed
+      const trimmedUrl = url.split("?")[0]; // remove any query params
+      return `${trimmedUrl}embed/`;
+    }
+    return null; // unsupported
+};
+  

@@ -14,12 +14,37 @@
     background-repeat: repeat;
 }
 
+.noise-bg-3 {
+  background-image: url('./assets/Rectangle 13 (3).png');
+  background-repeat: repeat;
+  background-color: rgba(0, 0, 0, 0.3); /* 30% overlay */
+  background-blend-mode: multiply; /* or overlay/darken depending on effect */
+}
+
+
+.noise-bg-2 {
+  background-image: url('./assets/noise2.png');
+  background-repeat: repeat;
+}
+
 .backgroundImage {
     background-image: url('./assets/home.jpeg');
     background-repeat: no-repeat; 
 }
 
 html{
-  font-size: 80%;
+  font-size: 65%; /* Small screens */
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 75%; /* Medium screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 80%; /* Large screens and up */
+    }
 }
 

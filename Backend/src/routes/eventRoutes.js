@@ -4,8 +4,8 @@ import { addEvent, getAllEvents, updateCompletion, deleteEvent } from "../contro
 const router = express.Router()
 
 router.post("/addEvent", addEvent)
-router.post("/deleteEvent", deleteEvent)
-router.post("/updateCompletion", updateCompletion)
+router.post("/deleteEvent/:id", deleteEvent)
+router.post("/updateCompletion/:id", updateCompletion)
 router.get("/getAllEvents", getAllEvents)
 
 export default router

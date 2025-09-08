@@ -2,6 +2,14 @@ import Event from "../models/Event.js"
 import { notifyVolunteers } from "../lib/utils.js"
 import cloudinary from "../lib/cloudinary.js" 
 
+function toTitleCase(str) {
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
 export const addEvent = async(req, res) => {
     const {name, description, image} = req.body
     try {
@@ -16,9 +24,9 @@ export const addEvent = async(req, res) => {
         }
 
         const newEvent = new Event({
-            name, 
+            name: toTitleCase(name), 
             description,
-            image: uploadResponse?.secure_url || ""
+            image: uploadResponse?.secure_url || "https://res.cloudinary.com/db5gkuilb/image/upload/v1757188547/qxhvwnexl6rycmayd8sv.png"
         })
 
         await newEvent.save()
@@ -42,7 +50,7 @@ export const addEvent = async(req, res) => {
 
 export const getAllEvents = async(req, res) => {
     try {
-        const events = await Event.find()
+        const events = await Event.find().sort({ isCompleted: 1, createdAt: -1 });
         res.status(200).json(events)
     } catch (error) {
         console.log("Error in getAllEvents controller", error.message)
@@ -61,13 +69,19 @@ export const deleteEvent = async(req, res) => {
     }
 }
 
-export const updateCompletion = async(req, res) => {
-    const {id} = req.params
+export const updateCompletion = async (req, res) => {
+    const { id } = req.params;
     try {
-        await Event.findByIdAndUpdate({_id: id}, {isCompleted: true})
-        res.status(200).json({ message: "Event is completed!" })
+      const event = await Event.findById(id);
+      if (!event) return res.status(404).json({ message: "Event not found" });
+  
+      event.isCompleted = !event.isCompleted;
+      await event.save();
+  
+      res.status(200).json({ message: "Event completion updated", event });
     } catch (error) {
-        console.log("Error in updateCompletion controller", error.message)
-        res.status(500).json({ message: "Internal Server Error" })
+      console.log("Error in updateCompletion controller", error.message);
+      res.status(500).json({ message: "Internal Server Error" });
     }
-}
+  };
+  

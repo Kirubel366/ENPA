@@ -1,16 +1,15 @@
 import User from "../models/User.js"
 import bcrypt from "bcryptjs"
 import { generateToken } from "../lib/utils.js"
-import cloudinary from "../lib/cloudinary.js"
 
 export const signUp = async(req, res) => {
-    const {name, email, password, profilePic} = req.body
+    const {name, email, password, phone} = req.body
     try {
-        if(!name || !email || !password){
+        if(!name || !email || !password || !phone){
             return res.status(400).json({ message: "All fields are required!" })
         }
 
-        if(password.lenth < 8){
+        if(password.length < 8){
             return res.status(400).json({ message: "Password must have at least 8 characters!" })
         }
         
@@ -23,17 +22,11 @@ export const signUp = async(req, res) => {
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
 
-        let uploadResponse = ""
-        
-        if(profilePic){
-            uploadResponse = await cloudinary.uploader.upload(profilePic)
-        }
-
         const newUser = new User({
             name, 
             email,
             password: hashedPassword,
-            profilePic: uploadResponse?.secure_url || ""
+            phone
         })
 
         if(newUser){
@@ -44,7 +37,7 @@ export const signUp = async(req, res) => {
                 _id: newUser._id,
                 name: newUser.name,
                 email: newUser.email,
-                profilePic: newUser.profilePic,
+                phone: newUser.phone,
                 role: newUser.role
             })
         } else {
@@ -57,61 +50,39 @@ export const signUp = async(req, res) => {
     }
 }
 
-export const addAdminAccount = async(req, res) => {
-    const {name, email, password, profilePic} = req.body
+
+export const addAdminUser = async () => {
     try {
-        if(!name || !email || !password){
-            return res.status(400).json({ message: "All fields are required!" })
+        // Check if an admin already exists
+        const existingAdmin = await User.findOne({ role: "admin" });
+        if (existingAdmin) {
+            console.log("Admin user already exists!");
+            return;
         }
 
-        if(password.lenth < 8){
-            return res.status(400).json({ message: "Password must have at least 8 characters!" })
-        }
-        
+        // Manually set your admin details here
+        const name = "Admin Name";
+        const email = "admin@example.com";
+        const password = "StrongPassword123"; // Make sure it's secure
+        const phone = "1234567890";
 
-        const user = await User.findOne({ email })
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
-        if(user){
-            return res.status(400).json({ message: "Email already in use!" })
-        }
-
-        const salt = await bcrypt.genSalt(10)
-        const hashedPassword = await bcrypt.hash(password, salt)
-
-        let uploadResponse = ""
-        
-        if(profilePic){
-            uploadResponse = await cloudinary.uploader.upload(profilePic)
-        }
-
-        const newUser = new User({
-            name, 
+        const adminUser = new User({
+            name,
             email,
             password: hashedPassword,
-            profilePic: uploadResponse?.secure_url || "",
-            role: "admin"
-        })
+            phone,
+            role: "admin" // assign admin role
+        });
 
-        if(newUser){
-            generateToken(newUser._id, res)
-            await newUser.save()
-
-            res.status(201).json({
-                _id: newUser._id,
-                name: newUser.name,
-                email: newUser.email,
-                profilePic: newUser.profilePic,
-                role: newUser.role
-            })
-        } else {
-            res.status(400).json({ message: "Invalid user data!" })
-        }
-
-    } catch (error) {
-        console.log("Error in signup controller", err.message)
-        res.status(500).json({ message: "Internal Server Error" })
+        await adminUser.save();
+        console.log("Admin user created successfully!");
+    } catch (err) {
+        console.error("Error creating admin user:", err.message);
     }
-}
+};
 
 export const login = async(req, res) => {
     const {email, password} = req.body
@@ -137,9 +108,9 @@ export const login = async(req, res) => {
 
         res.status(201).json({
             _id: user._id,
-            fullName: user.fullName,
+            name: user.fullName,
             email: user.email,
-            profilePic: user.profilePic,
+            phone: user.phone,
             role: user.role
         });
     } catch (error) {
@@ -158,43 +129,11 @@ export const logout = (req, res) => {
     }
 }
 
-export const updateProfilePic = async(req, res) => {
-    try {
-        const {profilePic} = req.body
-        const userId = req.user._id
-
-        if(!profilePic){
-            return res.status(400).json({ message: "Profile pic is required" })
-        }
-        
-        const uploadResponse = await cloudinary.uploader.upload(profilePic)
-        const updatedUser = await User.findByIdAndUpdate(userId, {profilePic: uploadResponse.secure_url}, {new:true})
-
-        res.status(200).json(updatedUser)
-    } catch (error) {
-        console.log("Error in update profile", error);
-        res.status(500).json({ message: "Internal server error" })
-    }
-}
-
 export const checkAuth = (req, res) => {
     try {
         res.status(200).json(req.user);
     } catch (error) {
         console.log("Error in checkAuth controller", error);
-        res.status(500).json({ message: "Internal server error" })
-    }
-}
-
-export const getAdmins = async(req, res) => {
-    const userId = req.user._id
-    try {
-        const allAdmins = await User.find({role: "admin"})
-        const normalAdmins = allAdmins.filter((admin) => admin._id !== userId)
-
-        res.status(200).json(normalAdmins)
-    } catch (error) {
-        console.log("Error in getAdmins controller", error);
         res.status(500).json({ message: "Internal server error" })
     }
 }
@@ -219,4 +158,78 @@ export const deleteAccount = async(req, res) => {
         res.status(500).json({ message: "Internal server error" })
     }
 }
+
+export const updateAdminAccount = async (req, res) => {
+    const { email, currentPassword, newPassword } = req.body;
+    const userId = req.user._id;
+
+    try {
+        if (!email && (!currentPassword || !newPassword)) {
+            return res.status(400).json({ message: "No new data provided for update!" });
+        }
+
+        if (newPassword && newPassword.length < 8) {
+            return res.status(400).json({ message: "New password must have at least 8 characters!" });
+        }
+
+        // Check email uniqueness if changing email
+        if (email) {
+            const existingUser = await User.findOne({ email });
+            if (existingUser && existingUser._id.toString() !== userId) {
+                return res.status(400).json({ message: "Email already in use!" });
+            }
+        }
+
+        const user = await User.findById(userId);
+
+        // If updating password, compare current password
+        if (currentPassword && newPassword) {
+            const isMatch = await bcrypt.compare(currentPassword, user.password);
+            if (!isMatch) {
+                return res.status(400).json({ message: "Current password invalid" });
+            }
+            const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+            user.password = hashedNewPassword;
+        }
+
+        // Update email if provided
+        if (email) user.email = email;
+
+        await user.save();
+        res.status(200).json(user);
+    } catch (error) {
+        console.log("Error in updateAdminAccount controller", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+export const updateVolunteerAccount = async(req, res) => {
+    const {email, name, phone} = req.body
+    const userId = req.user._id
+    try {
+        if(!email && !name && !phone){
+            return res.status(400).json({ message: "No new data provided for update!" })
+        }
+        
+        const existingUser = await User.findOne({ email })
+
+        if(existingUser){
+            return res.status(400).json({ message: "Email already in use!" })
+        }
+
+        const user = await User.findById({_id: userId})
+
+        const name2 = !name ? user.name : name;
+        let email2 = !email ? user.email : email;
+        let phone2 = !phone ? user.phone : phone;
+
+        const updatedUser = await User.findByIdAndUpdate({_id: userId},{email: email2, name: name2, phone: phone2},{new:true})
+        return res.status(200).json(updatedUser)
+
+    } catch (error) {
+        console.log("Error in updateAdminAccount controller", error);
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
+
 

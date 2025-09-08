@@ -1,5 +1,5 @@
 import express from "express"
-import { signUp, login, logout, updateProfilePic, getActiveVolunteers, checkAuth, addAdminAccount, getAdmins, deleteAccount } from "../controllers/authControllers.js"
+import { signUp, login, logout, getActiveVolunteers, checkAuth, deleteAccount, updateAdminAccount, updateVolunteerAccount } from "../controllers/authControllers.js"
 import { protectRoute } from "../middlewares/protectRoute.js"
 
 const router = express.Router()
@@ -7,11 +7,10 @@ const router = express.Router()
 router.post("/signUp", signUp)
 router.post("/login", login)
 router.post("/logout", logout)
-router.post("/updateProfilePic", protectRoute, updateProfilePic)
-router.post("/checkAuth", protectRoute, checkAuth)
+router.get("/checkAuth", protectRoute, checkAuth)
+router.post("/updateAdminAccount", protectRoute, updateAdminAccount)
+router.post("/updateVolunteerAccount", protectRoute, updateVolunteerAccount)
 router.get("/getActiveVolunteers", getActiveVolunteers)
-router.post("/addAdminAccount", addAdminAccount)
-router.get("/getAdmins", protectRoute, getAdmins)
 router.post("/deleteAccount/:id", deleteAccount)
 
 export default router
