@@ -137,15 +137,15 @@ const Volunteer = () => {
         <TbLogout2 onClick={() => setIsSideBarOpen(true)} className='absolute top-33 bg-[#0077B6]/60 border-l-3 border-[hsl(201,100%,40%)] text-white h-20 rounded-l-full left-0 rotate-180 text-5xl' />
         <div className={`${isSideBarOpen || !isMobile ? "flex" : "hidden" } fixed z-30 flex-col gap-1.5 items-start justify-start top-30 left-0 h-[100vh] w-70 bg-[#03045E] pt-10 px-6 border-r-2 border-[#90E0EF]`}>
             <LuX onClick={() => setIsSideBarOpen(false)} className={`${isMobile ? "" : "hidden"} text-[hsl(201,50%,80%)] text-3xl self-end -mt-6`} />
-            <div onClick={() => setPage("home")} className={`flex items-center justify-center gap-2 text-xl text-white border-2 hover:border-[#90E0EF] hover:bg-[hsl(189,60%,35%)]/50 ${page === "home" ? "border-[#90E0EF] bg-[hsl(189,60%,35%)]/50" : "border-transparent"} rounded-full py-2 px-7 hover:cursor-pointer transition-all duration-300`}>
+            <div onClick={() => {setPage("home"), setIsSideBarOpen(false)}} className={`flex items-center justify-center gap-2 text-xl text-white border-2 hover:border-[#90E0EF] hover:bg-[hsl(189,60%,35%)]/50 ${page === "home" ? "border-[#90E0EF] bg-[hsl(189,60%,35%)]/50" : "border-transparent"} rounded-full py-2 px-7 hover:cursor-pointer transition-all duration-300`}>
             <HiHome />
             Home
             </div>
-            <div onClick={() => setPage("events")} className={`flex items-center justify-center gap-2 text-xl text-white border-2 hover:border-[#90E0EF] hover:bg-[hsl(189,60%,35%)]/50 ${page === "events" ? "border-[#90E0EF] bg-[hsl(189,60%,35%)]/50" : "border-transparent"} rounded-full py-2 px-7 hover:cursor-pointer transition-all duration-300`}>
+            <div onClick={() => {setPage("events"), setIsSideBarOpen(false)}} className={`flex items-center justify-center gap-2 text-xl text-white border-2 hover:border-[#90E0EF] hover:bg-[hsl(189,60%,35%)]/50 ${page === "events" ? "border-[#90E0EF] bg-[hsl(189,60%,35%)]/50" : "border-transparent"} rounded-full py-2 px-7 hover:cursor-pointer transition-all duration-300`}>
             <FaCalendarAlt />
               Events
             </div>
-            <div onClick={() => setPage("contact-us")} className={`flex items-center justify-center gap-2 text-xl text-white border-2 hover:border-[#90E0EF] hover:bg-[hsl(189,60%,35%)]/50 ${page === "contact-us" ? "border-[#90E0EF] bg-[hsl(189,60%,35%)]/50" : "border-transparent"} rounded-full py-2 px-7 hover:cursor-pointer transition-all duration-300`}>
+            <div onClick={() => {setPage("contact-us"), setIsSideBarOpen(false)}} className={`flex items-center justify-center gap-2 text-xl text-white border-2 hover:border-[#90E0EF] hover:bg-[hsl(189,60%,35%)]/50 ${page === "contact-us" ? "border-[#90E0EF] bg-[hsl(189,60%,35%)]/50" : "border-transparent"} rounded-full py-2 px-7 hover:cursor-pointer transition-all duration-300`}>
               <MdContactMail />
               Contact Us
             </div>

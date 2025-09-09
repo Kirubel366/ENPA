@@ -23,15 +23,15 @@ const Donate = () => {
                 <h3 className='text-3xl font-bold text-white'>Bank Accounts</h3>
               </div>
               <div className='flex flex-col gap-5 items-start justify-center'>
-                <div className='felx flex-col items-start justify-center text-white text-lg'>
+                <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
                   <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000440036604</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>CEBETAA</span></p>
                 </div>
-                <div className='felx flex-col items-start justify-center text-white text-lg'>
+                <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
                   <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000440036604</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>NIBIETAA</span></p>
                 </div>
-                <div className='felx flex-col items-start justify-center text-white text-lg'>
+                <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
                   <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000440036604</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>CEBETAA</span></p>
                 </div>
