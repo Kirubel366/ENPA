@@ -63,10 +63,37 @@ const Navbar = () => {
           </div>
         </div>
         <div className='flex items-center justify-center sm:gap-3'>
-          <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100' icon="logos:tiktok-icon" width="18" height="18" />
-          <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100' icon="skill-icons:instagram" width="18" height="18" />
-          <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100' icon="logos:facebook" width="18" height="18" />
-          <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100' icon="logos:youtube-icon" width="22" height="22" />
+          <Icon
+            className="hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100"
+            icon="logos:youtube-icon"
+            width="22"
+            height="22"
+            onClick={() => window.open('https://www.youtube.com/@kalebenpa', '_blank')}
+          />
+
+          <Icon
+            className="hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100"
+            icon="logos:tiktok-icon"
+            width="18"
+            height="18"
+            onClick={() => window.open('https://www.tiktok.com/@enpa_amba', '_blank')}
+          />
+
+          <Icon
+            className="hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100"
+            icon="skill-icons:instagram"
+            width="18"
+            height="18"
+            onClick={() => window.open('https://www.instagram.com/enpa_amba/', '_blank')}
+          />
+
+          <Icon
+            className="hover:cursor-pointer hover:scale-120 transition-all duration-500 scale-80 sm:scale-100"
+            icon="logos:facebook"
+            width="18"
+            height="18"
+            onClick={() => window.open('https://www.facebook.com/people/Enpa-Amba/100009394607453/', '_blank')}
+          />
         </div>   
       </div>
 

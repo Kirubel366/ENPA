@@ -74,11 +74,38 @@ const Footer = () => {
         <div className='flex flex-col items-center justify-center gap-5'>
           <h3 className='font-semibold text-2xl'>Social Media</h3>
           <div className='flex items-center justify-center gap-3'>
-            <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500' icon="logos:tiktok-icon" width="23" height="23" />
-            <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500' icon="skill-icons:instagram" width="23" height="23" />
-            <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500' icon="logos:facebook" width="23" height="23" />
-            <Icon className='hover:cursor-pointer hover:scale-120 transition-all duration-500' icon="logos:youtube-icon" width="27" height="27" />
-        </div>
+            <Icon
+              className='hover:cursor-pointer hover:scale-120 transition-all duration-500'
+              icon="logos:youtube-icon"
+              width="27"
+              height="27"
+              onClick={() => window.open('https://www.youtube.com/@kalebenpa', '_blank')}
+            />
+
+            <Icon
+              className='hover:cursor-pointer hover:scale-120 transition-all duration-500'
+              icon="logos:tiktok-icon"
+              width="23"
+              height="23"
+              onClick={() => window.open('https://www.tiktok.com/@enpa_amba', '_blank')}
+            />
+
+            <Icon
+              className='hover:cursor-pointer hover:scale-120 transition-all duration-500'
+              icon="skill-icons:instagram"
+              width="23"
+              height="23"
+              onClick={() => window.open('https://www.instagram.com/enpa_amba/', '_blank')}
+            />
+
+            <Icon
+              className='hover:cursor-pointer hover:scale-120 transition-all duration-500'
+              icon="logos:facebook"
+              width="23"
+              height="23"
+              onClick={() => window.open('https://www.facebook.com/people/Enpa-Amba/100009394607453/', '_blank')}
+            />
+          </div>
         </div>
       </div>
       <div className='flex flex-col items-center justify-center gap-8 mt-20'>
