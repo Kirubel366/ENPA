@@ -1,7 +1,7 @@
 import React from 'react'
 import image from "../../assets/home3 (1).jpg"
 import hands from "../../assets/hands.png"
-import fam from "../../assets/mother.png"
+import mom from "../../assets/mother.png"
 import kaleb from "../../assets/kaleb.jpg"
 import HENOKALEMU from "../../assets/HENOK ALEMU.jpg"
 import YITAGESUGETNET from "../../assets/YITAGESU GETNET.jpg"
@@ -38,8 +38,8 @@ const About = () => {
               <p className='text-2xl text-white'>Years of Service</p>
             </div>
             <div className='flex flex-col items-center justify-center gap-3'>
-              <div className='size-25 bg-[#0077B6]/60 border-2 border-[#0077B6] flex items-center justify-center rounded-full'>
-                <p className='opacity-70'><img src={fam} className='object-cover' /></p>
+              <div className='size-25 bg-[#0077B6]/60 border-2 border-[#0077B6] flex items-center justify-center rounded-full overflow-hidden'>
+                <p className='opacity-70'><img src={mom} className='object-cover size-19' /></p>
               </div>
               <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>350+</h5>
               <p className='text-2xl text-white'>Mothers Supported</p>
