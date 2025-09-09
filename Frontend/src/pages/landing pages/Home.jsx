@@ -137,11 +137,13 @@ const Home = () => {
             </div>
 
             {/* Image */}
-            <img
-              src={images[currentIndex]?.image}
-              alt=""
-              className='w-full h-70 sm:w-180 lg:w-280 sm:h-150 object-cover rounded-3xl border-2 border-[hsl(201,100%,70%)] transition-opacity duration-700 ease-in-out opacity-100'
-            />
+            <div className="w-full sm:w-180 lg:w-280 h-70 sm:h-150 overflow-hidden rounded-3xl border-2 border-[hsl(201,100%,70%)]">
+              <img
+                src={images[currentIndex]?.image}
+                alt=""
+                className="w-full h-full object-cover transition-opacity duration-700 ease-in-out opacity-100"
+              />
+            </div>
 
             {/* Right Arrow */}
             <div
