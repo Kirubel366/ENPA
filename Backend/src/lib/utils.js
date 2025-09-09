@@ -12,8 +12,9 @@ export const generateToken = (userId, res) => {
   res.cookie("token", token, {
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     httpOnly: true,                   // prevent XSS attacks
-    sameSite: process.env.NODE_ENV === "development" ? "lax" : "none", // allow cross-site cookies in production
-    secure: process.env.NODE_ENV !== "development" // must be HTTPS in prod
+    sameSite: process.env.NODE_ENV === "development" ? "lax" : "none", // cross-site in production
+    secure: process.env.NODE_ENV !== "development", // HTTPS only in prod
+    path: "/"                         // make cookie available on all routes
   });
 
   return token;
