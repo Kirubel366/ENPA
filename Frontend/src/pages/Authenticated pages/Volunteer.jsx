@@ -112,7 +112,7 @@ const Volunteer = () => {
             <p onClick={() => setIsOpen(true)} className={`text-3xl font-bold text-shadow-lg text-shadow-[#003E5E] font-oregano hover:cursor-pointer duration-500 transition-all hover:text-[#003E5E] hover:text-shadow-[#81FEAB] flex items-center justify-center ${isOpen ? "text-[#003E5E] text-shadow-[#81FEAB]" : "text-white"}`}><p>Account Info.</p><MdOutlineKeyboardArrowRight className='-rotate-270 size-10' /></p>
           </div>
           
-          <form onSubmit={handleUpdate} className={`${isOpen ? "" : "hidden"} absolute top-33 right-3 flex flex-col gap-5 items-center justify-start p-5 sm:p-10 h-auto w-100 sm:w-130 bg-gradient-to-br from-[hsl(201,100%,26%)] to-130% to-[#81FEAB] rounded-3xl border-3 border-blue-400/60`}>
+          <form onSubmit={handleUpdate} className={`${isOpen ? "" : "hidden"} absolute top-33 right-3 flex flex-col gap-5 items-center justify-start p-5 sm:p-10 h-auto w-105 sm:w-130 bg-gradient-to-br from-[hsl(201,100%,26%)] to-130% to-[#81FEAB] rounded-3xl border-3 border-blue-400/60`}>
             <FaX onClick={() => setIsOpen(false)} className='absolute top-3 right-3 text-xl text-green-400/80 hover:scale-105 bg-[hsl(200,100%,30%)] rounded-full p-2 flex items-center justify-center size-10 hover:cursor-pointer duration-300 transition-all' />
             <h2 className='text-3xl font-bold text-green-400 font-piedra'>Account Info.</h2>
             <div className='flex items-center justify-start gap-2 text-lg text-[#90E0EF] bg-[#003E5E] p-3 rounded-lg w-full'>
