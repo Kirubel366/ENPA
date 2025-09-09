@@ -212,7 +212,7 @@ const Admin = () => {
     <div className='flex flex-col items-center justify-start gap-15 sm:pl-60 pb-15 pt-55 sm:pt-40 font-outfit noise-bg-3 h-auto min-h-[100vh]'>
         <div className='px-5 md:px-30 fixed z-100 top-0 h-30 right-0 left-0 bg-gradient-to-r from-[#03045E] to-130% to-green-400 p-10 border-b-2 border-[#90E0EF]'>
           <div className='flex items-center justify-between'><div onClick={() => setPage("home")} className='text-3xl sm:text-4xl sm:font-bold text-white font-piedra hover:scale-105 hover:cursor-pointer duration-300 transition-all flex items-center justify-center -mt-3 sm:-mt-7'><img src={adminicon} alt="" width={isMobile ? 50 : 80}/> <span>ENPA Admin Panel</span></div> <p onClick={() => setIsOpen(true)} className={`text-3xl font-bold text-shadow-lg text-shadow-[#003E5E] font-oregano hover:cursor-pointer duration-500 transition-all hover:text-[#003E5E] hover:text-shadow-[#81FEAB] -mt-5 sm:-mt-9 flex items-center justify-center ${isOpen ? "text-[#003E5E] text-shadow-[#81FEAB]" : "text-white"}`}><p>{isMobile ? <FaUser /> : "Account Info."}</p><MdOutlineKeyboardArrowRight className='-rotate-270 size-10' /></p></div>
-          <form onSubmit={handleUpdate} className={`${isOpen ? "" : "hidden"} absolute top-33 right-3 flex flex-col gap-5 items-center justify-start p-10 px-2 sm:px-10 h-auto w-100 sm:w-130 bg-gradient-to-br from-[#003E5E] to-130% to-[#81FEAB] rounded-3xl border-3 border-green-400/60`}>
+          <form onSubmit={handleUpdate} className={`${isOpen ? "" : "hidden"} absolute top-33 right-3 flex flex-col gap-5 items-center justify-start p-10 px-5 sm:px-10 h-auto w-105 sm:w-130 bg-gradient-to-br from-[#003E5E] to-130% to-[#81FEAB] rounded-3xl border-3 border-green-400/60`}>
             <FaX onClick={() => setIsOpen(false)} className='absolute top-3 right-3 text-xl text-green-400/80 hover:scale-105 bg-[hsl(200,100%,30%)] rounded-full p-2 flex items-center justify-center size-10 hover:cursor-pointer duration-300 transition-all' />
             <h2 className='text-3xl font-bold text-green-400 font-piedra'>Account Info.</h2>
             <div className='flex items-center justify-start gap-2 text-lg text-[#90E0EF] bg-[#003E5E] p-3 rounded-lg w-full'>
@@ -362,7 +362,7 @@ const Admin = () => {
         </form>
 
         {/* Current Events Page */}
-        <div className={`${page === "list-events" ? "" : "hidden"} flex flex-col items-center justify-center p-10 w-110 sm:w-120 lg:w-250 h-auto rounded-3xl bg-[#02405F]/70 border-3 border-[#90E0EF]`}>
+        <div className={`${page === "list-events" ? "" : "hidden"} flex flex-col items-center justify-center p-10 w-110 sm:w-120 lg:w-240 h-auto rounded-3xl bg-[#02405F]/70 border-3 border-[#90E0EF]`}>
           <h3 className='text-3xl text-white font-bold mb-10'>Current Events</h3>
           <div className='flex items-center justify-center gap-15 px-10 py-6 bg-[#81FEAB]/50 w-full lg:w-220'>
             <h4 className='font-semibold text-xl text-[#51F678]/80 w-40'>Image</h4>
@@ -373,22 +373,22 @@ const Admin = () => {
           </div>
           <div className='flex flex-col items-center justify-center'>
             {areEventsLoading ? <LuLoader className='animate-spin self-center text-white text-3xl mt-10' /> : events.map((event) => (
-              <div className='relative flex flex-col items-start justify-center gap-15 px-10 pt-6 bg-[#306078]/70 text-white w-full h-auto lg:w-220 border-b-2 border-[#90E0EF] hover:bg-[#306078]/50 duration-300 transition-all'>
-                <div className={`${openId === event._id ? "" : "h-45"} flex items-start justify-center gap-15`}>
+              <div className='relative flex flex-col items-start justify-start gap-15 px-10 pt-6 bg-[#306078]/70 text-white w-full min-h-47 lg:min-h-auto h-auto lg:w-220 border-b-2 border-[#90E0EF] hover:bg-[#306078]/50 duration-300 transition-all'>
+                <div className={`${openId === event._id ? "" : "h-45"} flex items-start justify-center gap-15 h-auto mb-3`}>
                   <img src={event.image} className='font-semibold text-xl w-40 h-25 object-cover' />
                 <h4 className='text-xl w-40'>{event.name}</h4>
-                <h4 className='text-xl w-45 hidden lg:block '>{event.description}</h4>
-                <input type="checkbox" checked={event.isCompleted} onChange={() => updateEventCompletion(event._id)} className='hidden lg:block w-45 mr-7 size-7' />
-                <h4 onClick={() => deleteEvent(event._id)} className='hidden lg:block text-2xl text-red-500 mr-3 hover:cursor-pointer hover:scale-110 duration-300 transition-all'><FaTrash /></h4>
+                <h4 className='text-xl w-45 wrap-anywhere hidden lg:block'>{event.description}</h4>
+                <input type="checkbox" checked={event.isCompleted} onChange={() => updateEventCompletion(event._id)} className='hidden lg:block w-30 mr-15 size-7' />
+                <h4 onClick={() => deleteEvent(event._id)} className='hidden lg:block text-2xl text-red-500 mr-50 hover:cursor-pointer hover:scale-110 duration-300 transition-all'><FaTrash /></h4>
                 </div>
-                <button onClick={() => setOpenId(event._id)} className={`${openId === event._id ? "hidden" : ""} absolute top-33 left-10 w-31 py-1 rounded-lg bg-green-400/40 border-2 border-green-400/60`}>Details</button>
+                <button onClick={() => setOpenId(event._id)} className={`${openId === event._id ? "hidden" : ""} lg:hidden absolute top-34 left-10 w-31 py-1 rounded-lg bg-green-400/40 border-2 border-green-400/60`}>Details</button>
                 <div className={`${openId === event._id ? "" : "hidden"} self-center mb-5 -mt-8 w-60 h-auto flex flex-col gap-3 items-start justify-center p-3 rounded-xl bg-[hsl(200,63%,20%)]/80`}>
                       <div className='relative h-3'>
                         <LuX onClick={() => setOpenId(null)} className='absolute -top-1 -right-53 text-xl text-green-400'/>
                       </div>
                       <div className='flex flex-col w-full items-start text-white/80 justify-center bg-[hsl(200,73%,16%)]/60 border-1 border-green-500/80 p-4 rounded-lg'>
                         <p className='text-green-300 text-lg font-bold font-serif'>Description</p>
-                        <p className='mt-2'>{event.description}</p>
+                        <p className='mt-2 wrap-anywhere w-full'>{event.description}</p>
                       </div>
                       <div className='flex flex-col w-full items-start text-white/80 justify-center bg-[hsl(200,73%,16%)]/60 border-1 border-green-500/80 p-4 rounded-lg'>
                         <p className='text-green-300 font-bold font-serif'>Completion</p>
@@ -573,7 +573,7 @@ const Admin = () => {
                       <p className='flex gap-2 items-center justify-center text-lg text-green-400'><LuMail /> {volunteer.email}</p>
                     </div>)
           }else {
-            return (<div className='relative flex justify-center sm:justify-start gap-15 px-10 py-10 h-50 bg-[#306078]/70 text-white w-full sm:w-160 border-b-2 border-[#90E0EF] hover:bg-[#306078]/50 duration-300 transition-all'>
+            return (<div className='relative flex justify-center sm:justify-start gap-15 px-10 py-10 h-auto bg-[#306078]/70 text-white w-full sm:w-160 border-b-2 border-[#90E0EF] hover:bg-[#306078]/50 duration-300 transition-all'>
               <h4 className='text-xl w-40'>{volunteer.name}</h4>
               <h4 className='text-xl w-45 break-words'>{volunteer.email}</h4>
               <h4 className='text-xl'>{volunteer.phone}</h4>

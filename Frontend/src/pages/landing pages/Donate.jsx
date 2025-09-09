@@ -24,33 +24,33 @@ const Donate = () => {
               </div>
               <div className='flex flex-col gap-5 items-start justify-center'>
                 <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
-                  <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000440036604</span></p>
+                  <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000346733229</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>CEBETAA</span></p>
                 </div>
                 <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
-                  <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000440036604</span></p>
+                  <p>Nibinternational Bank: <span className='font-bold text-2xl text-[#90E0EF]'>7000001718528</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>NIBIETAA</span></p>
                 </div>
                 <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
-                  <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'>1000440036604</span></p>
-                  <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>CEBETAA</span></p>
+                  <p>Abyssina Bank: <span className='font-bold text-2xl text-[#90E0EF]'>220683761</span></p>
+                  <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>ABYSETAA</span></p>
                 </div>
               </div>
             </div>
             <div className='flex flex-col items-start justify-center gap-10'>
               <div className='flex items-center justify-center gap-3 rounded-full py-3 px-6 bg-[#0077B6]/60 border-2 border-[#90E0EF]'>
                 <img src={telebirr} alt="" className='h-10 w-30 object-cover' />
-                <p className='font-bold text-xl text-[#90E0EF]'>+251911803260</p>
+                <p className='font-bold text-xl text-[#90E0EF]'>+251948472828</p>
               </div>
               <div className='flex flex-col items-center justify-center gap-2 rounded-3xl py-3 px-6 bg-[#0077B6]/60 border-2 border-[#90E0EF]'>
                 <p className='text-xl text-white font-bold'>Contact to confirm donation</p>
-                <p className='font-bold text-2xl text-[#90E0EF]'>+251911803260</p>
+                <p className='font-bold text-2xl text-[#90E0EF]'>+251991129478</p>
               </div>
             </div>
           </div>
           <div className='flex flex-wrap items-center justify-center gap-3 rounded-2xl text-center sm:rounded-full py-3 px-3 w-full sm:w-200 bg-[#0077B6]/60 border-2 border-[#90E0EF]'>
                 <img src={materials} alt="" className=' object-cover' width={60} height={200} />
-                <p className='font-semibold text-xl text-green-400'>Do you want to donate materials?  <span className='text-white'>Contact Here: </span><span className='text-[#90E0EF] text-2xl'>+251911803260</span></p>
+                <p className='font-semibold text-xl text-green-400'>Do you want to donate materials?  <span className='text-white'>Contact Here: </span><span className='text-[#90E0EF] text-2xl'>+251991129478</span></p>
               </div>
         </div>
         <div className='hidden sm:block absolute -bottom-50 -left-120 noise-bg size-200 rounded-full'/>

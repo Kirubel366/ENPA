@@ -19,7 +19,7 @@ const Authentication = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(formData.email) && formData.email) {
       return toast.error("Invalid email format!")
     }
     if(type === "Login"){

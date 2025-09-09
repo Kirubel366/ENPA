@@ -1,7 +1,7 @@
 import React from 'react'
 import image from "../../assets/home3 (1).jpg"
 import hands from "../../assets/hands.png"
-import fam from "../../assets/family.png"
+import fam from "../../assets/mother.png"
 import kaleb from "../../assets/kaleb.jpg"
 import HENOKALEMU from "../../assets/HENOK ALEMU.jpg"
 import YITAGESUGETNET from "../../assets/YITAGESU GETNET.jpg"
@@ -27,7 +27,7 @@ const About = () => {
               <div className='size-25 bg-[#0077B6]/60 border-2 border-[#0077B6] flex items-center justify-center rounded-full'>
                 <p className='text-6xl opacity-70'>🎓</p>
               </div>
-              <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>1430+</h5>
+              <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>2000+</h5>
               <p className='text-2xl text-white'>Students Taught</p>
             </div>
             <div className='flex flex-col items-center justify-center gap-3'>
@@ -41,8 +41,8 @@ const About = () => {
               <div className='size-25 bg-[#0077B6]/60 border-2 border-[#0077B6] flex items-center justify-center rounded-full'>
                 <p className='opacity-70'><img src={fam} className='object-cover' /></p>
               </div>
-              <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>850+</h5>
-              <p className='text-2xl text-white'>Families Supported</p>
+              <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>350+</h5>
+              <p className='text-2xl text-white'>Mothers Supported</p>
             </div>
           </div>
           <div className='flex flex-wrap items-center justify-center gap-10'>

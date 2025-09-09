@@ -19,7 +19,7 @@ const Contact = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(formData.email) && formData.email) {
       return toast.error("Invalid email format!")
     }
     await sendContactForm(formData)
@@ -43,11 +43,11 @@ const Contact = () => {
             <div className='flex flex-col items-start justify-center gap-3 text-xl'>
               <div className='flex items-center justify-center gap-2 text-white font-bold'>
                 <FaPhone className='text-[hsl(201,100%,66%)]' />
-                <p>+251911803260</p>
+                <p>+251991129478</p>
               </div>
               <div className='flex items-center justify-center gap-2 text-white font-bold'>
                 <IoMail className='text-[hsl(201,100%,66%)]' />
-                <p>kirud87@gmail.com</p>
+                <p>kaleb.enpa@gmail.com</p>
               </div>
               <div className='flex items-start justify-center gap-2 text-white font-bold'>
                 <GrLocation className='text-3xl text-[hsl(201,100%,66%)]' />

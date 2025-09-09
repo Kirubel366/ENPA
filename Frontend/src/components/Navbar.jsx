@@ -54,12 +54,12 @@ const Navbar = () => {
         <div className='flex items-center justify-center gap-2 sm:gap-5'>
           <div className='flex items-center justify-center gap-1 sm:gap-2 text-white font-bold'>
             <FaPhone />
-            <p>+251911803260</p>
+            <p>+251991129478</p>
           </div>
           <div className='w-[2.5px] h-7 bg-white rounded-sm' />
           <div className='flex items-center justify-center gap-1 sm:gap-2 text-white font-bold'>
             <IoMail />
-            <p>kirud87@gmail.com</p>
+            <p>kaleb.enpa@gmail.com</p>
           </div>
         </div>
         <div className='flex items-center justify-center sm:gap-3'>
