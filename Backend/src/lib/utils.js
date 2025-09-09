@@ -47,7 +47,7 @@ export const notifyVolunteers = async ({ subject, message }) => {
         const emails = volunteers.map(v => v.email)
 
         await transporter.sendMail({
-            from: process.env.EMAIL_USER,
+            from: "kaleb.enpa@gmail.com",
             bcc: emails,
             subject,
             html: `<p>${message}</p>`,

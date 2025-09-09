@@ -53,7 +53,7 @@ app.post("/api/sendemail", async (req, res) => {
 
     const result = await sendEmail({
         from: email,
-        to: "kirud87@gmail.com",
+        to: "demaselam896@gmail.com",
         subject: `New Contact Form Submission from ${name}`,
         html: `
             <p><strong>Name:</strong> ${name}</p>
@@ -77,7 +77,7 @@ app.post("/api/sendFooterEmail", async (req, res) => {
 
     const result = await sendEmail({
         from: email,
-        to: "kirud87@gmail.com",
+        to: "kaleb.enpa@gmail.com",
         subject: `You Have a Message From ${email}`,
         html: `
             <p><strong>Message:</strong> ${message}</p>
