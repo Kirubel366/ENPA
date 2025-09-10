@@ -34,7 +34,7 @@ const About = () => {
               <div className='size-25 bg-[#0077B6]/60 border-2 border-[#0077B6] flex items-center justify-center rounded-full'>
                 <p className='text-6xl opacity-70'>⏳</p>
               </div>
-              <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>17+</h5>
+              <h5 className='text-5xl font-bold text-[#90E0EF] text-shadow-lg text-shadow-[hsl(189,75%,50%)]'>16+</h5>
               <p className='text-2xl text-white'>Years of Service</p>
             </div>
             <div className='flex flex-col items-center justify-center gap-3'>
