@@ -24,15 +24,15 @@ const Donate = () => {
               </div>
               <div className='flex flex-col gap-5 items-start justify-center'>
                 <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
-                  <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'><br />1000346733229</span></p>
+                  <p>Commercial Bank of Ethiopia: <span className='font-bold text-2xl text-[#90E0EF]'><br className='sm:hidden'/>1000346733229</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>CEBETAA</span></p>
                 </div>
                 <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
-                  <p>Nibinternational Bank: <span className='font-bold text-2xl text-[#90E0EF]'><br />7000001718528</span></p>
+                  <p>Nibinternational Bank: <span className='font-bold text-2xl text-[#90E0EF]'><br className='sm:hidden'/>7000001718528</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>NIBIETAA</span></p>
                 </div>
                 <div className='flex flex-col sm:items-start items-center text-center justify-center text-white text-lg'>
-                  <p>Abyssina Bank: <span className='font-bold text-2xl text-[#90E0EF]'><br />220683761</span></p>
+                  <p>Abyssina Bank: <span className='font-bold text-2xl text-[#90E0EF]'><br className='sm:hidden'/>220683761</span></p>
                   <p>Swift code: <span className='font-bold text-2xl text-[#90E0EF]'>ABYSETAA</span></p>
                 </div>
               </div>
