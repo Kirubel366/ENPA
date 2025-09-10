@@ -82,7 +82,7 @@ const About = () => {
           <div className='relative z-20 bg-[#0077B6]/30 border-2 border-[#90E0EF] rounded-3xl w-90 h-auto shadow-xl shadow-[#0077B6] hover:-translate-y-3 duration-400 transition-all'>
             <img src={YITAGESUGETNET} alt="" className='h-90 rounded-t-3xl w-full border-b-2 border-[#90E0EF] object-cover' />
             <h3 className='text-2xl font-bold text-[#90E0EF] text-center mt-10'>Yitagesu Getnet</h3>
-            <p className='text-lg text-white text-center mb-10'>Founder & General Manager</p>
+            <p className='text-lg text-white text-center mb-10'>Board chair</p>
           </div>
           <div className='hidden sm:block absolute -bottom-50 -left-120 noise-bg size-200 rounded-full'/>
           <div className='hidden sm:block absolute -bottom-50 -right-120 noise-bg size-200 rounded-full'/>
