@@ -22,7 +22,7 @@ const Events = () => {
           <div className='relative z-20 rounded-4xl pt-20 sm:pt-10 py-10 h-auto w-[90%] px-5 sm:w-250 flex flex-wrap items-start justify-center gap-10 border-3 border-[#90E0EF] bg-[#0077B6]/60 shadow-xl shadow-[#0077B6]'>
             <img src={event.image} alt="" className='object-cover h-100 w-100 border-3 border-[hsl(201,100%,50%)] rounded-3xl' />
             <div className='flex flex-col items-start justify-center gap-5'>
-              <div className='flex items-center justify-center gap-3 mt-10'>
+              <div className='flex items-center justify-center gap-3 mt-1'>
                   <p className='text-xl text-white font-bold'>Name: </p>
                   <h3 className='flex items-center justif-center py-2 px-6 border-2 border-[#90E0EF] text-2xl font-bold text-[#90E0EF] rounded-full'>{event.name}</h3>
               </div>
